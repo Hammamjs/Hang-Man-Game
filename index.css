@@ -1,0 +1,370 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: tahoma , arial;
+}
+
+.hang-container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media (min-width : 767px) {
+    .hang-container {
+        width: 750px;
+    }
+}
+@media (min-width : 992px) {
+    .hang-container {
+        width: 950px;
+    }
+}
+@media (min-width : 1200px) {
+    .hang-container {
+        width: 1170px;
+    }
+}
+
+.game-info{
+    display: flex;
+    /* justify-content: space-between; */
+    height: 50px;
+    align-items: center;
+}
+
+.game-name{
+    flex: 1;
+}
+
+hr {
+    border: 1px solid #EEE;
+}
+
+.category{
+    flex: 1;
+    text-align: right;
+}
+.category span{
+    text-transform: capitalize;
+    color: #E91E63;
+    font-weight: bold;
+}
+
+.row{
+    width: 100%;
+    padding: 20px;
+    background-color: #e6e6e6;
+    display: flex;
+}
+
+.hang-draw{
+    flex: 1;
+    background-color: #F8F8F8;
+    padding: 20px;
+    height: 324px;
+    /* position: relative; */
+}
+
+.the-draw {
+    width: 60px;
+    height: 280px;
+    border-bottom: 4px solid #222;
+    position: relative;
+    margin: auto;
+    display: none;
+    left: -50px;
+}
+
+.hang-draw.wrong-1 .the-draw{
+    display: block;
+}
+.hang-draw.wrong-2 .the-stand{
+    display: block;
+}
+.hang-draw.wrong-3 .the-hang{
+    display: block;
+}
+.hang-draw.wrong-4 .the-rope{
+    display: block;
+}
+.hang-draw.wrong-5 .head{
+    display: block;
+}
+.hang-draw.wrong-6 .body{
+    display: block;
+}
+.hang-draw.wrong-7 .hands{
+    display: block;
+}
+.hang-draw.wrong-8 .legs{
+    display: block;
+}
+
+
+.the-stand{
+    display: none;
+}
+.the-stand::before{
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #222;
+    height: 100%;
+    left: 50%;
+    margin-left: -2px;
+}
+
+.the-hang{
+    position: absolute;
+    height: 4px;
+    background-color: #222;
+    width: 100px;
+    left: 30px;
+    top: 15px;
+    display: none;
+}
+.the-hang::before{
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 43px;
+    top: 1px;
+    left: 95px;
+    background-color: #222;
+}
+
+
+.the-rope{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius:50%;
+    border: 2px dashed #222;
+    top: 57px;
+    left: 88px;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    -ms-border-radius:50%;
+    -o-border-radius:50%;
+    display: none;
+}
+
+.the-man .head{
+    position: absolute;
+    top: 67px;
+    left: 98px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #222;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    display :none;
+}
+
+.the-man .body{
+    width: 4px;
+    height: 60px;
+    position: absolute;
+    background-color: #222;
+    top: 117px;
+    left: 122px;
+    display:none;
+}
+
+.the-man .hands {
+    display: none;
+}
+
+.the-man .hands::before,
+.the-man .hands::after {
+    content: '';
+    position: absolute;
+    width: 45px;
+    height: 4px;
+    top: 134px;
+    background-color: #222;
+}
+
+.the-man .hands::before {
+    left: 122px;
+    transform: rotate(-30deg);
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+}
+
+.the-man .hands::after {
+    left: 80px;
+    transform: rotate(30deg);
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+}
+
+
+.the-man .legs {
+    display: none;
+}
+
+.the-man .legs::before,
+.the-man .legs::after {
+    content: '';
+    position: absolute;
+    width: 45px;
+    height: 4px;
+    top: 185px;
+    background-color: #222;
+
+}
+
+.the-man .legs::before {
+    left: 118px;
+    transform: rotate(30deg);
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+}
+
+.the-man .legs::after {
+    left: 84px;
+    transform: rotate(-30deg);
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+}
+
+
+.letters{
+    flex: 1;
+    padding: 20px 25px;
+    text-align: center;
+    text-transform: uppercase;
+    display: flex;
+    width: 500px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    height: 300px;
+}
+
+
+.letters.finished {
+    opacity: .5;
+    pointer-events: none;
+}
+
+.letters .letter {
+    margin-bottom: 29px;
+    padding: 14px;
+    background-color: #009688;
+    margin-left: 10px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+@media (max-width : 991px) {
+    .letters .letter {
+        margin-bottom: 12px;
+        padding: 7px;
+        margin-left: 5px;
+    }
+}
+
+
+
+.letters .clicked {
+    background-color: grey;
+    pointer-events: none;
+    opacity: .3;
+    
+}
+
+.letters-guess{
+    position: relative;
+    background-color: #F6F6F6;
+    min-height: 80px;
+    display: flex;
+    margin: 0px auto;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.letters-guess span {
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    margin-left: 10px;
+    color: #222;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid #222;
+}
+
+.letters-guess .has-space {
+    position: relative;
+    border: none;
+    background-color: transparent;
+}
+
+.letters-guess .has-space::before {
+    content: '';
+    width: 10px;
+    height: 2px;
+    background-color: #222;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    -webkit-transform: translate(-50% , -50%);
+    -moz-transform: translate(-50% , -50%);
+    -ms-transform: translate(-50% , -50%);
+    -o-transform: translate(-50% , -50%);
+}
+
+.hang-draw .failed-message {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    background-color: #009688;
+    padding: 50px;
+    text-align: center;
+    z-index: 155;
+    font-weight: bold;
+    color: white;
+}
+
+.hang-draw .winner-message {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    background-color: #009688;
+    padding: 50px;
+    text-align: center;
+    z-index: 155;
+    font-weight: bold;
+    color: white;
+}
